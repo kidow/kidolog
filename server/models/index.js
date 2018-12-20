@@ -6,15 +6,23 @@ module.exports = () => {
     mongoose.set('debug', true)
   }
 
-  mongoose.connect(MONGO_URI, {
-    dbName: 'kidolog',
-    useNewUrlParser: true,
-    useCreateIndex: true
-  }, err => {
-    if (err) {
-      console.error('mongoDB connecting error :', err)
-    } else {
-      console.error('mongoDB connected')
+  mongoose.connect(
+    MONGO_URI,
+    {
+      dbName: 'kidolog',
+      useNewUrlParser: true,
+      useCreateIndex: true
+    },
+    (err) => {
+      if (err) {
+        console.error('mongoDB connecting error :', err)
+      } else {
+        console.error('mongoDB connected')
+      }
     }
-  })
+  )
+
+  require('./post')
+  require('./account')
+  require('./comment')
 }
