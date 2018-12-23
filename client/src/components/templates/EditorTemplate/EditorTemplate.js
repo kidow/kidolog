@@ -4,7 +4,13 @@ import { Markdown, Preview, IconButton } from 'components/molecules'
 import { Input, Button, Icon } from 'components/atoms'
 import { IoIosArrowDropleft, IoIosImage } from 'react-icons/io'
 
-const EditorTemplate = ({ history }) => {
+const EditorTemplate = ({
+  history,
+  markdownStyle,
+  previewStyle,
+  separatorStyle,
+  onSeparatorMouseDown
+}) => {
   return (
     <div className="editor-template">
       <div className="editor__header">
@@ -26,8 +32,18 @@ const EditorTemplate = ({ history }) => {
         </div>
       </div>
       <div className="editor__content">
-        <Markdown />
-        <Preview />
+        <div className="content__flex" style={markdownStyle}>
+          <Markdown />
+        </div>
+        <div className="content__flex" style={previewStyle}>
+          <Preview />
+        </div>
+        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+        <div
+          className="content__separator"
+          style={separatorStyle}
+          onMouseDown={onSeparatorMouseDown}
+        />
       </div>
     </div>
   )

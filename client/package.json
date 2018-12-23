@@ -5,13 +5,16 @@
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
+    "codemirror": "^5.42.2",
     "cross-env": "^5.2.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.3.0",
     "immutable": "^4.0.0-rc.12",
     "include-media": "^1.4.9",
+    "marked": "^0.5.2",
     "node-sass": "^4.11.0",
     "open-color": "^1.6.3",
+    "prismjs": "^1.15.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-icons": "^3.2.2",
@@ -30,6 +33,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "parser": "babel-eslint",
     "extends": [
       "airbnb",
       "prettier"
@@ -76,6 +80,21 @@
       "react/prefer-stateless-function": 0,
       "react/prop-types": 0,
       "react/jsx-one-expression-per-line": 0,
+      "jsx-ally/no-static-element-interactions": [
+        0,
+        {
+          "handlers": [
+            "onClick",
+            "onMouseDown",
+            "onMouseUp",
+            "onKeyPress",
+            "onKeyDown",
+            "onKeyUp",
+            "style",
+            "className"
+          ]
+        }
+      ],
       "jsx-a11y/anchor-is-valid": [
         2,
         {
