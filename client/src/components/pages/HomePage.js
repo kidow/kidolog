@@ -1,8 +1,12 @@
 import React from 'react'
-import { PageTemplate } from 'components/templates'
+import { PageTemplate, ListTemplate } from 'components/templates'
 
 const HomePage = () => {
-  return <PageTemplate>Home</PageTemplate>
+  return (
+    <PageTemplate>
+      <ListTemplate>List</ListTemplate>
+    </PageTemplate>
+  )
 }
 
 export default HomePage

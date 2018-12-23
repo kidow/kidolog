@@ -1,0 +1,21 @@
+@import '~lib/styles/media';
+
+.list-template {
+  padding-top: calc(6rem + 4px);
+  padding-bottom: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  width: 1024px;
+  margin: 0 auto;
+
+  @include media('<desktop') {
+    width: 768px;
+  }
+  @include media('<tablet') {
+    width: 512px;
+  }
+  @include media('<phone') {
+    width: 100%;
+  }
+}
