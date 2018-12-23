@@ -1,1 +1,22 @@
 @import '~lib/styles/color';
+@import '~lib/styles/shadow';
+
+.button {
+  padding: 0.25rem 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  @include shadow(0);
+  &.default {
+    border: 1px solid $oc-orange-6;
+    color: $oc-orange-6;
+    &:hover {
+      background: $oc-orange-6;
+      color: white;
+      @include shadow(3);
+    }
+    &:active {
+      background: $oc-orange-8;
+    }
+  }
+}

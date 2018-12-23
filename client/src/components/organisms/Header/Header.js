@@ -9,7 +9,7 @@ const Header = () => {
         <div className="header__logo">
           <a href="/">Kidolog</a>
         </div>
-        <Button>글쓰기</Button>
+        <Button>새 포스트</Button>
       </div>
       <div className="header__divider" />
     </div>
