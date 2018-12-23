@@ -13,9 +13,11 @@
     width: 768px;
   }
   @include media('<tablet') {
-    width: 512px;
+    width: 100%;
   }
   @include media('<phone') {
     width: 100%;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
   }
 }

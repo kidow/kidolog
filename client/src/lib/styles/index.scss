@@ -2,10 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Serif:400,700');
 @import url('https://cdn.jsdelivr.net/gh/velopert/font-d2coding@1.2.1/d2coding.css');
 
-* {
-  box-sizing: border-box;
-}
-
 html,
 body {
   height: 100%;
@@ -13,6 +9,11 @@ body {
   padding: 0;
   background: $oc-gray-1;
   font-family: 'PT Serif', serif;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
 }
 
 a {

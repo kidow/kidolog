@@ -1,10 +1,13 @@
 import React from 'react'
 import { PageTemplate, ListTemplate } from 'components/templates'
+import { PostList } from 'components/organisms'
 
 const HomePage = () => {
   return (
     <PageTemplate>
-      <ListTemplate>List</ListTemplate>
+      <ListTemplate>
+        <PostList />
+      </ListTemplate>
     </PageTemplate>
   )
 }

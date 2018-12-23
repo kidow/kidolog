@@ -1,0 +1,18 @@
+@import '~lib/styles/color';
+@import '~lib/styles/shadow';
+@import '~lib/styles/media';
+
+.post__container {
+  width: 298px;
+  background: white;
+  @include shadow(0);
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  @include media('<desktop') {
+    width: 336px;
+  }
+  @include media('<tablet') {
+    width: 100%;
+  }
+}
