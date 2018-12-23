@@ -1,7 +1,8 @@
 import React from 'react'
+import EditorTemplateContainer from 'containers/templates/EditorTemplateContainer'
 
 const EditorPage = () => {
-  return <div>EditorPage</div>
+  return <EditorTemplateContainer />
 }
 
 export default EditorPage
