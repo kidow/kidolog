@@ -1,10 +1,10 @@
 import React from 'react'
 import './Input.scss'
 
-const Input = () => {
+const Input = ({ ...rest }) => {
   return (
     <div className="input__container">
-      <input placeholder="제목을 입력하세요." />
+      <input {...rest} />
     </div>
   )
 }

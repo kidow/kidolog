@@ -11,6 +11,11 @@
     color: white;
     .header__left {
       display: flex;
+      align-items: center;
+      flex: 1;
+      .back-icon {
+        cursor: pointer;
+      }
     }
     .header__right {
       display: flex;
