@@ -6,7 +6,7 @@ const PageTemplate = ({ children }) => {
   return (
     <div className="page-template">
       <Header />
-      {children}
+      <div className="main-content">{children}</div>
       <Footer />
     </div>
   )

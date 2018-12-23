@@ -1,6 +1,9 @@
 @import '~lib/styles/color';
 @import '~lib/styles/shadow';
 .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   .header__content {
     height: 4rem;
     background: white;
