@@ -1,0 +1,26 @@
+@import '~lib/styles/color';
+
+.markdown__container {
+  flex: 1;
+  flex-direction: column;
+  .markdown__code-editor {
+    flex: 1;
+    background: $oc-gray-9;
+
+    height: calc(100% - 2rem);
+  }
+  .markdown__tags {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 2rem;
+    background: $oc-gray-7;
+    display: flex;
+    align-items: center;
+    .markdown__description {
+      font-size: 0.85rem;
+      color: white;
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+  }
+}
