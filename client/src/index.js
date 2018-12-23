@@ -6,10 +6,23 @@ import * as serviceWorker from './serviceWorker'
 
 import { BrowserRouter, Route } from 'react-router-dom'
 
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import reducer from 'store'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import penderMiddleware from 'redux-pender'
+
+const store = createStore(
+  reducer,
+  composeWithDevTools(applyMiddleware(penderMiddleware()))
+)
+
 ReactDOM.render(
-  <BrowserRouter>
-    <Route exact path="/" component={App} />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <Route exact path="/" component={App} />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 )
 
