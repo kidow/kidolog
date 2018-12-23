@@ -1,8 +1,15 @@
 import React from 'react'
 import { PostTemplate } from 'components/templates'
+import { Content } from 'components/molecules'
+import { Logo } from 'components/atoms'
 
 const PostPage = () => {
-  return <PostTemplate>Post Page</PostTemplate>
+  return (
+    <PostTemplate>
+      <Logo big />
+      <Content />
+    </PostTemplate>
+  )
 }
 
 export default PostPage

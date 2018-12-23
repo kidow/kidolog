@@ -1,0 +1,47 @@
+@import '~lib/styles/color';
+@import '~lib/styles/media';
+
+@mixin phone {
+  @include media('<phone') {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+.content__container {
+  margin-top: 5rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  @include media('<phone') {
+    margin-top: 2rem;
+    padding-top: 3rem;
+    border-top: 1px solid $oc-gray-3;
+    background: white;
+  }
+  .content__title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 3rem;
+    word-break: keep-all;
+    @include phone;
+  }
+  .content__date {
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $oc-gray-3;
+    color: $oc-gray-5;
+    font-size: 1.3rem;
+    @include phone;
+  }
+  .content__body {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    @include media('<phone') {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+  }
+}
