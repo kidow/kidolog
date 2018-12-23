@@ -52,6 +52,7 @@
       "arrow-body-style": 0,
       "global-require": 0,
       "linebreak-style": 0,
+      "lines-between-class-members": 0,
       "no-unused-expressions": 0,
       "no-confusing-arrow": 0,
       "no-return-assign": 0,
@@ -82,6 +83,7 @@
       "react/prefer-stateless-function": 0,
       "react/prop-types": 0,
       "react/jsx-one-expression-per-line": 0,
+      "react/destructuring-assignment": 0,
       "jsx-ally/no-static-element-interactions": [
         0,
         {

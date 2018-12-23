@@ -10,7 +10,9 @@ const EditorTemplate = ({
   markdownStyle,
   previewStyle,
   separatorStyle,
-  onSeparatorMouseDown
+  onSeparatorMouseDown,
+  title,
+  onChange
 }) => {
   return (
     <div className="editor-template">
@@ -22,7 +24,12 @@ const EditorTemplate = ({
             className="back-icon"
             onClick={() => history.goBack()}
           />
-          <Input placeholder="제목을 입력해주세요." />
+          <Input
+            name="title"
+            value={title}
+            onChange={onChange}
+            placeholder="제목을 입력해주세요."
+          />
         </div>
         <div className="header__right">
           <IconButton IconName={IoIosImage} size={25}>
