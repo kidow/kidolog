@@ -1,5 +1,5 @@
 import React from 'react'
-import EditorTemplateContainer from 'containers/templates/EditorTemplateContainer'
+import { EditorTemplateContainer } from 'containers/templates'
 
 const EditorPage = ({ history }) => {
   return <EditorTemplateContainer history={history} />

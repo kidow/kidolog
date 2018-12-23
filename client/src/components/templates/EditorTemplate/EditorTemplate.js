@@ -3,7 +3,7 @@ import './EditorTemplate.scss'
 import { Preview, IconButton } from 'components/molecules'
 import { Input, Button, Icon } from 'components/atoms'
 import { IoIosArrowDropleft, IoIosImage } from 'react-icons/io'
-import MarkdownContainer from 'containers/molecules/MarkdownContainer'
+import { MarkdownContainer } from 'containers/molecules'
 
 const EditorTemplate = ({
   history,
