@@ -3,7 +3,7 @@
 .post-template {
   width: 768px;
   margin: 0 auto;
-  margin-top: 2rem;
+  padding-top: 2rem;
   @include media('<tablet') {
     width: 100%;
   }
