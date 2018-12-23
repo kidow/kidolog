@@ -1,0 +1,19 @@
+@import '~lib/styles/color';
+
+.editor-template {
+  .editor__header {
+    height: 4rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $oc-gray-8;
+    color: white;
+    .header__left {
+      display: flex;
+    }
+    .header__right {
+      display: flex;
+    }
+  }
+}
