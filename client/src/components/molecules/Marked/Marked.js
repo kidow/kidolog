@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import marked from 'marked'
+import './Marked.scss'
 
 import Prism from 'prismjs'
 import 'prismjs/themes/prism-okaidia.css'
