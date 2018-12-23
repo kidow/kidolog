@@ -1,5 +1,6 @@
 import React from 'react'
 import './Header.scss'
+import { Button } from 'components/atoms'
 
 const Header = () => {
   return (
@@ -8,7 +9,7 @@ const Header = () => {
         <div className="header__logo">
           <a href="/">Kidolog</a>
         </div>
-        <div className="header__buttons">버튼</div>
+        <Button>글쓰기</Button>
       </div>
       <div className="header__divider" />
     </div>
