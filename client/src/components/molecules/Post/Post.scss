@@ -8,11 +8,43 @@
   @include shadow(0);
   margin-left: 1rem;
   margin-right: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   @include media('<desktop') {
     width: 336px;
   }
   @include media('<tablet') {
     width: 100%;
+  }
+  .post__image {
+    padding: 1rem;
+    padding-top: 1.2rem;
+    border-bottom: 1px solid $oc-gray-2;
+    background: $oc-gray-0;
+    color: $oc-gray-3;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8.5rem;
+    cursor: pointer;
+  }
+  .post__title {
+    padding: 1rem;
+    height: 8.5rem;
+    .title__text {
+      font-size: 1.6rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .title__date {
+      margin-top: 0.2rem;
+      color: $oc-gray-5;
+    }
+  }
+  .post__description {
+    padding: 1rem;
+    padding-bottom: 1.2rem;
+    border-top: 1px solid $oc-gray-2;
+    height: 8.5rem;
   }
 }
