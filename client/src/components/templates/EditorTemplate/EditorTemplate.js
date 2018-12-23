@@ -1,6 +1,6 @@
 import React from 'react'
 import './EditorTemplate.scss'
-import { Markdown, Preview, IconButton } from 'components/molecules'
+import { Preview, IconButton, Markdown } from 'components/molecules'
 import { Input, Button, Icon } from 'components/atoms'
 import { IoIosArrowDropleft, IoIosImage } from 'react-icons/io'
 
