@@ -1,7 +1,8 @@
 import React from 'react'
+import './PageTemplate.scss'
 
-const PageTemplate = () => {
-  return <div>PageTemplate</div>
+const PageTemplate = ({ children }) => {
+  return <div className="page-template">{children}</div>
 }
 
 export default PageTemplate
