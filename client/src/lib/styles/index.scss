@@ -14,3 +14,8 @@ body {
   background: $oc-gray-1;
   font-family: 'PT Serif', serif;
 }
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
