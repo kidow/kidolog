@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { HomePage, PostPage, EditorPage, NotFoundPage } from 'components/pages'
-import LoginPage from './pages/LoginPage'
+import { HomePage, PostPage, EditorPage, NotFoundPage, LoginPage } from 'components/pages'
 
 class App extends Component {
   render() {
