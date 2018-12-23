@@ -1,9 +1,9 @@
 import React from 'react'
 import './EditorTemplate.scss'
-import { Preview, IconButton } from 'components/molecules'
+import { IconButton } from 'components/molecules'
 import { Input, Button, Icon } from 'components/atoms'
 import { IoIosArrowDropleft, IoIosImage } from 'react-icons/io'
-import { MarkdownContainer } from 'containers/molecules'
+import { MarkdownContainer, PreviewContainer } from 'containers/molecules'
 
 const EditorTemplate = ({
   history,
@@ -44,7 +44,7 @@ const EditorTemplate = ({
           <MarkdownContainer />
         </div>
         <div className="content__flex" style={previewStyle}>
-          <Preview />
+          <PreviewContainer />
         </div>
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
         <div
