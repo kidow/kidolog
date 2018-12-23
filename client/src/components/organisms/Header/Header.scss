@@ -1,19 +1,23 @@
 @import '~lib/styles/color';
 @import '~lib/styles/shadow';
+@import '~lib/styles/media';
+
 .header {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 20;
   .header__content {
-    padding-left: 2rem;
-    padding-right: 2rem;
     height: 4rem;
     background: white;
-    padding: 1rem;
+    padding: 1rem 4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include media('<phone') {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
     .header__logo {
       color: $oc-orange-8;
       font-weight: bold;
