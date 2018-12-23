@@ -22,10 +22,13 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": ["airbnb", "prettier"],
+    "extends": [
+      "airbnb", 
+      "prettier"
+    ],
     "rules": {
       "semi": [
-        2,
+        0,
         "never"
       ],
       "comma-dangle": [
