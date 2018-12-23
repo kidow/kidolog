@@ -19,6 +19,9 @@
     }
     .header__right {
       display: flex;
+      .spacer {
+        width: 1rem;
+      }
     }
   }
 }

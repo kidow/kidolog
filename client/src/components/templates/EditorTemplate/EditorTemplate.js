@@ -1,19 +1,26 @@
 import React from 'react'
 import './EditorTemplate.scss'
-import { Markdown, Preview } from 'components/molecules'
+import { Markdown, Preview, IconButton } from 'components/molecules'
 import { Input, Button } from 'components/atoms'
-import { IoIosArrowDropleft } from 'react-icons/io'
+import { IoIosArrowDropleft, IoIosImage } from 'react-icons/io'
 
-const EditorTemplate = () => {
+const EditorTemplate = ({ history }) => {
   return (
     <div className="editor-template">
       <div className="editor__header">
         <div className="header__left">
-          <IoIosArrowDropleft size={35} className="back-icon" />
+          <IoIosArrowDropleft
+            size={35}
+            className="back-icon"
+            onClick={() => history.goBack()}
+          />
           <Input placeholder="제목을 입력해주세요." />
         </div>
         <div className="header__right">
-          <Button>업로드</Button>
+          <IconButton IconName={IoIosImage} size={25}>
+            업로드
+          </IconButton>
+          <div className="spacer" />
           <Button>작성하기</Button>
         </div>
       </div>

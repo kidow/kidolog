@@ -3,7 +3,8 @@ import { EditorTemplate } from 'components/templates'
 
 class EditorTemplateContainer extends Component {
   render() {
-    return <EditorTemplate />
+    const { history } = this.props
+    return <EditorTemplate history={history} />
   }
 }
 
