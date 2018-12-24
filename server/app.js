@@ -33,6 +33,18 @@ app.use(
 
 app.use('/', require('./routes'))
 
+app.use((err, req, res, next) => {
+  if (err) {
+    console.error(err)
+    res.status(err.status)
+  }
+  res.json({
+    success: false,
+    code: err.code,
+    message: err.message
+  })
+})
+
 app.listen(port, () => {
   console.log(`App listening on ${host} and PORT ${port}!`)
 })
