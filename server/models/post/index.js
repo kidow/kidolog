@@ -9,11 +9,7 @@ const Post = new mongoose.Schema(
   { timestamps: true }
 )
 
-Post.statics.write = function({ title, markdown, tags }) {
-  const post = new this({ title, markdown, tags })
-  return post.save()
-}
-
-Post.statics.list = function({ cursor, tag }) {}
+Post.statics.write = require('./write')
+Post.statics.list = require('./list')
 
 module.exports = mongoose.model('Post', Post)

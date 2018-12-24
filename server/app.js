@@ -3,7 +3,11 @@ const express = require('express')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
-const { PORT: port = 4000, HOST: host = '127.0.0.1', COOKIE_KEY: cookieKey } = process.env
+const {
+  PORT: port = 4000,
+  HOST: host = '127.0.0.1',
+  COOKIE_KEY: cookieKey
+} = process.env
 // const connect = require('./models')
 
 require('./lib/moduleAlias')
