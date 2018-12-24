@@ -12,10 +12,10 @@ module.exports = async (req, res, next) => {
     res.status(500)
   }
 
-  const next =
+  const nextUrl =
     posts.length === 6
       ? `/posts/?${tag ? `tag=${tag}&` : ''}cursor=${posts[5]._id}`
       : null
 
-  res.json({ next, posts })
+  res.json({ next: nextUrl, posts })
 }
