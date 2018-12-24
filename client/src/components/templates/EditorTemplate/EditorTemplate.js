@@ -12,7 +12,9 @@ const EditorTemplate = ({
   separatorStyle,
   onSeparatorMouseDown,
   title,
-  onChange
+  onChange,
+  onSubmit,
+  onUploadClick
 }) => {
   return (
     <div className="editor-template">
@@ -34,11 +36,11 @@ const EditorTemplate = ({
           />
         </div>
         <div className="header__right">
-          <IconButton IconName={IoIosImage} size={25}>
+          <IconButton IconName={IoIosImage} size={25} onClick={onUploadClick}>
             업로드
           </IconButton>
           <div className="spacer" />
-          <Button>작성하기</Button>
+          <Button onClick={onSubmit}>작성하기</Button>
         </div>
       </div>
       <div className="editor__content">

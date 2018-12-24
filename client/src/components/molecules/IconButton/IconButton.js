@@ -1,9 +1,10 @@
 import React from 'react'
 import './IconButton.scss'
 
-const IconButton = ({ IconName, children, ...rest }) => {
+/* eslint-disable */
+const IconButton = ({ IconName, onClick, children, ...rest }) => {
   return (
-    <div className="icon-button">
+    <div className="icon-button" onClick={onClick}>
       <IconName className="icon" {...rest} />
       {children}
     </div>

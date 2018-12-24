@@ -10,6 +10,39 @@ class EditorTemplateContainer extends Component {
     leftPercentage: 0.5
   }
 
+  componentDidMount() {
+    const { EditorActions } = this.props
+    EditorActions.initializeEditor()
+  }
+
+  onUploadClick = () => {
+    const upload = document.createElement('input')
+    upload.type = 'file'
+    upload.onchange = e => {
+      if (!upload.files) return
+      const file = upload.files[0]
+      this.uploadImage(file)
+    }
+    upload.click()
+  }
+
+  uploadImage = async file => {}
+
+  onSubmit = async () => {
+    const { title, markdown, tags, EditorActions, history } = this.props
+    const post = {
+      title,
+      markdown,
+      tags: tags === '' ? [] : [...new Set(tags.split(',').map(tag => tag.trim()))]
+    }
+    try {
+      await EditorActions.writePost(post)
+      history.push('/')
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   onMouseMove = e => {
     this.setState({
       leftPercentage: e.clientX / window.innerWidth
@@ -35,7 +68,7 @@ class EditorTemplateContainer extends Component {
   render() {
     const { history, title } = this.props
     const { leftPercentage } = this.state
-    const { onSeparatorMouseDown, onChangeInput } = this
+    const { onSeparatorMouseDown, onChangeInput, onSubmit, onUploadClick } = this
     const markdownStyle = { flex: leftPercentage }
     const previewStyle = { flex: 1 - leftPercentage }
     const separatorStyle = { left: `${leftPercentage * 100}%` }
@@ -46,6 +79,8 @@ class EditorTemplateContainer extends Component {
         title={title}
         onChange={onChangeInput}
         onSeparatorMouseDown={onSeparatorMouseDown}
+        onSubmit={onSubmit}
+        onUploadClick={onUploadClick}
         markdownStyle={markdownStyle}
         previewStyle={previewStyle}
         separatorStyle={separatorStyle}
@@ -56,7 +91,9 @@ class EditorTemplateContainer extends Component {
 
 export default connect(
   state => ({
-    title: state.editor.get('title')
+    title: state.editor.get('title'),
+    markdown: state.editor.get('markdown'),
+    tags: state.editor.get('tags')
   }),
   dispatch => ({
     EditorActions: bindActionCreators(editorActions, dispatch)
