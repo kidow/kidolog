@@ -4,6 +4,7 @@ import { PostList } from 'components/organisms'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as listActions from 'store/list'
+import { Spinner } from 'components/atoms'
 
 class PostListContainer extends Component {
   prev = null
@@ -57,6 +58,7 @@ class PostListContainer extends Component {
   }
   render() {
     const { posts, loading } = this.props
+    if (loading) return <Spinner />
     return <PostList posts={posts} />
   }
 }
