@@ -1,13 +1,20 @@
 const Post = require('@models/post')
 
 module.exports = async (req, res, next) => {
-  const { tags } = req.query
-  const query = tags ? { tags } : {}
+  const { id } = req.params
+  if (!ObjectId.isValid(id)) {
+    res.sendStatus(400)
+    return
+  }
   try {
-    const posts = await Post.find(query)
-    res.json(posts)
+    const post = await Post.findById(id).exec()
+    if (!post) {
+      res.sendStatus(404)
+      return
+    }
+    res.json(post)
   } catch (e) {
-    console.error(e)
+    res.status(500)
     next(e)
   }
 }
