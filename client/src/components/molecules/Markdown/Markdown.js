@@ -70,6 +70,7 @@ class Markdown extends Component {
             onChange={onChange}
             name="tags"
             placeholder="태그를 입력하세요 (쉼표로 구분)"
+            theme="tag"
           />
         </div>
       </div>

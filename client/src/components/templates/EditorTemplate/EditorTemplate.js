@@ -1,7 +1,6 @@
 import React from 'react'
 import './EditorTemplate.scss'
-import { IconButton } from 'components/molecules'
-import { Input, Button, Icon } from 'components/atoms'
+import { Input, Button, Icon, IconButton } from 'components/atoms'
 import { IoIosArrowDropleft, IoIosImage } from 'react-icons/io'
 import { MarkdownContainer, PreviewContainer } from 'containers/molecules'
 
@@ -33,7 +32,6 @@ const EditorTemplate = ({
               onChange={onChange}
               placeholder="제목을 입력해주세요."
               autoFocus
-              autoComplete="off"
               theme="editor"
             />
           </div>

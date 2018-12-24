@@ -25,4 +25,9 @@ input {
     width: 100px;
     text-align: center;
   }
+  &.tag {
+    font-size: 0.85rem;
+    flex: 1;
+    font-weight: 600;
+  }
 }
