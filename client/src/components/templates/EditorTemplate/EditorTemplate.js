@@ -26,14 +26,17 @@ const EditorTemplate = ({
             className="back-icon"
             onClick={() => history.goBack()}
           />
-          <Input
-            name="title"
-            value={title}
-            onChange={onChange}
-            placeholder="제목을 입력해주세요."
-            autoFocus
-            autoComplete="off"
-          />
+          <div className="header__input">
+            <Input
+              name="title"
+              value={title}
+              onChange={onChange}
+              placeholder="제목을 입력해주세요."
+              autoFocus
+              autoComplete="off"
+              theme="editor"
+            />
+          </div>
         </div>
         <div className="header__right">
           <IconButton IconName={IoIosImage} size={25} onClick={onUploadClick}>

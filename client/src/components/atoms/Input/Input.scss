@@ -1,12 +1,10 @@
 @import '~lib/styles/color';
 
-.input__container {
-  flex: 1;
-  margin-left: 1rem;
-  input {
-    background: none;
-    border: none;
-    outline: none;
+input {
+  background: none;
+  border: none;
+  outline: none;
+  &.editor {
     color: #fff;
     flex: 1;
     width: 100%;
@@ -14,5 +12,11 @@
     &::placeholder {
       color: $oc-gray-3;
     }
+  }
+  &.search {
+    border-bottom: 1px solid $oc-gray-3;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    color: $oc-gray-7;
   }
 }
