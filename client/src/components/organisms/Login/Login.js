@@ -14,6 +14,7 @@ const Login = ({ password, onChangePassword, onKeyPress }) => {
           type="password"
           autoFocus
           onKeyPress={onKeyPress}
+          theme="login"
         />
       </div>
     </div>

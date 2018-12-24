@@ -19,4 +19,10 @@ input {
     font-size: 1.2rem;
     color: $oc-gray-7;
   }
+  &.login {
+    background: white;
+    padding: 0.45rem;
+    width: 100px;
+    text-align: center;
+  }
 }

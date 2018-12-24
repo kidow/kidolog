@@ -11,15 +11,11 @@
     width: 200px;
     height: 140px;
     @include shadow(2);
+    padding: 1rem;
     h2 {
       text-align: center;
       color: white;
       font-weight: bold;
-    }
-    input {
-      &::placeholder {
-        color: #fff;
-      }
     }
   }
 }
