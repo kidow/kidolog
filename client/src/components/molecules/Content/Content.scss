@@ -1,10 +1,10 @@
 @import '~lib/styles/color';
 @import '~lib/styles/media';
 
-@mixin phone {
-  @include media('<phone') {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+@mixin tablet {
+  @include media('<tablet') {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
   }
 }
 
@@ -23,7 +23,7 @@
     font-weight: bold;
     line-height: 3rem;
     word-break: keep-all;
-    @include phone;
+    @include tablet;
   }
   .content__date {
     margin-top: 1rem;
@@ -31,20 +31,21 @@
     border-bottom: 1px solid $oc-gray-3;
     color: $oc-gray-5;
     font-size: 1.3rem;
-    @include phone;
+    @include tablet;
   }
   .content__body {
     padding-top: 3rem;
     padding-bottom: 6rem;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: 400;
-    @include media('<phone') {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-      font-size: 1.2rem;
+    @include media('<tablet') {
+      padding-left: 0.8rem;
+      padding-right: 0.8rem;
+      font-size: 1rem;
     }
   }
   .content__tags {
     padding-bottom: 4rem;
+    @include tablet;
   }
 }
