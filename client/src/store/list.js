@@ -13,8 +13,8 @@ export const showNextList = createAction(SHOW_NEXT_LIST)
 
 const initialState = Map({
   next: '',
-  data: List(),
-  nextData: List()
+  posts: List(),
+  nextPosts: List()
 })
 
 export default handleActions(
@@ -22,20 +22,22 @@ export default handleActions(
     ...pender({
       type: GET_LIST,
       onSuccess: (state, action) => {
-        const { next, data } = action.payload.data
-        return state.set('next', next).set('data', fromJS(data))
+        const { next, posts } = action.payload.data
+        return state.set('next', next).set('posts', fromJS(posts))
       }
     }),
     ...pender({
       type: NEXT_LIST,
       onSuccess: (state, action) => {
-        const { next, data } = action.payload.data
-        return state.set('next', next).set('nextData', fromJS(data))
+        const { next, posts } = action.payload.data
+        return state.set('next', next).set('nextPosts', fromJS(posts))
       }
     }),
     [SHOW_NEXT_LIST]: (state, action) => {
-      const nextData = state.get('nextData')
-      return state.update('data', data => data.concat(nextData)).set('nextData', List())
+      const nextPosts = state.get('nextPosts')
+      return state
+        .update('posts', post => post.concat(nextPosts))
+        .set('nextPosts', List())
     }
   },
   initialState

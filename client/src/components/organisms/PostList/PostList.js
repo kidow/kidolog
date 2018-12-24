@@ -3,7 +3,7 @@ import './PostList.scss'
 import { Post } from 'components/molecules'
 // import { Link } from 'react-router-dom'
 
-const PostList = () => {
+const PostList = ({ posts }) => {
   return (
     <div className="post-list">
       <Post />
