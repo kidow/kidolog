@@ -1,7 +1,7 @@
 import React from 'react'
 import './Post.scss'
 
-const Post = () => {
+const Post = ({ title, markdown, createdAt, tags }) => {
   return (
     <div className="post__container">
       <div className="post__image">이미지가 없습니다</div>
