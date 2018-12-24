@@ -1,0 +1,25 @@
+@import '~lib/styles/color';
+@import '~lib/styles/shadow';
+
+.login__container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .login__input {
+    background: $oc-orange-5;
+    width: 200px;
+    height: 140px;
+    @include shadow(2);
+    h2 {
+      text-align: center;
+      color: white;
+      font-weight: bold;
+    }
+    input {
+      &::placeholder {
+        color: #fff;
+      }
+    }
+  }
+}
