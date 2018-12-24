@@ -11,7 +11,7 @@ module.exports = async (req, res, next) => {
   const result = Joi.validate(req.body, schema)
 
   if (result.error) {
-    console.log(result.error)
+    console.error(result.error)
     res.sendStatus(400)
     return
   }

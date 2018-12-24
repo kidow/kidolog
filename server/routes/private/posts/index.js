@@ -1,7 +1,8 @@
 const posts = require('express').Router()
+const { checkObjectId } = require('@middle')
 
 posts.post('/', require('./write'))
-posts.delete('/:id', require('./remove'))
-posts.patch('/:id', require('./update'))
+posts.delete('/:id', checkObjectId, require('./remove'))
+posts.patch('/:id', checkObjectId, require('./update'))
 
 module.exports = posts
