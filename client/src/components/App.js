@@ -8,7 +8,7 @@ class App extends Component {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/login" component={LoginPage} />
-        <Route path="/tag/:tag/:page?" component={HomePage} />
+        <Route path="/tag/:tag" component={HomePage} />
         <Route path="/post/:id" component={PostPage} />
         <Route path="/editor" component={EditorPage} />
         <Route component={NotFoundPage} />
