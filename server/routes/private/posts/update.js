@@ -1,4 +1,5 @@
 const Post = require('@models/post')
+const CustomError = require('@error')
 
 module.exports = async (req, res, next) => {
   const schema = Joi.object().keys({
