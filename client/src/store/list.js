@@ -6,15 +6,18 @@ import * as api from 'lib/api/list'
 const GET_LIST = 'list/GET_LIST'
 const NEXT_LIST = 'list/NEXT_LIST'
 const SHOW_NEXT_LIST = 'list/SHOW_NEXT_LIST'
+const CHANGE_SEARCH = 'list/CHANGE_SEARCH'
 
 export const getList = createAction(GET_LIST, api.getList)
 export const nextList = createAction(NEXT_LIST, api.nextList)
 export const showNextList = createAction(SHOW_NEXT_LIST)
+export const changeSearch = createAction(CHANGE_SEARCH)
 
 const initialState = Map({
   next: '',
   posts: List(),
-  nextPosts: List()
+  nextPosts: List(),
+  search: ''
 })
 
 export default handleActions(
@@ -38,6 +41,10 @@ export default handleActions(
       return state
         .update('posts', post => post.concat(nextPosts))
         .set('nextPosts', List())
+    },
+    [CHANGE_SEARCH]: (state, action) => {
+      const { payload: value } = action
+      return state.set('search', value)
     }
   },
   initialState

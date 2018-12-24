@@ -19,7 +19,7 @@ const initialState = Map({
 export default handleActions(
   {
     [CHANGE_PASSWORD]: (state, action) => {
-      const { value } = action.payload
+      const { payload: value } = action
       return state.set('password', value)
     },
     ...pender({
