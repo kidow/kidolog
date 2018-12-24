@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
-import { Post } from 'components/molecules'
+import { Content } from 'components/molecules'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as postActions from 'store/post'
 
-class PostContainer extends Component {
+class ContentContainer extends Component {
+  componentDidMount() {
+    this.initialize()
+  }
+
   initialize = async () => {
     const { PostActions, id } = this.props
     try {
@@ -15,15 +19,11 @@ class PostContainer extends Component {
     }
   }
 
-  componentDidMount() {
-    this.initialize()
-  }
-
   render() {
     const { loading, post } = this.props
     const { title, markdown, createdAt, tags } = post.toJS()
     if (loading) return null
-    return <Post title={title} markdown={markdown} createdAt={createdAt} tags={tags} />
+    return <Content title={title} markdown={markdown} createdAt={createdAt} tags={tags} />
   }
 }
 
@@ -35,4 +35,4 @@ export default connect(
   dispatch => ({
     PostActions: bindActionCreators(postActions, dispatch)
   })
-)(PostContainer)
+)(ContentContainer)

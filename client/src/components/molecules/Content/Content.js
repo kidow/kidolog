@@ -1,7 +1,7 @@
 import React from 'react'
 import './Content.scss'
 
-const Content = () => {
+const Content = ({ title, markdown, createdAt, tags }) => {
   return (
     <div className="content__container">
       <div className="content__title">
