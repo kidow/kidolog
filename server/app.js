@@ -2,10 +2,10 @@ require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const { PORT: port = 4000, HOST: host = '127.0.0.1' } = process.env
-const connect = require('./models')
+// const connect = require('./models')
 
 const app = express()
-connect()
+// connect()
 
 app.use(morgan('dev'))
 app.use(express.json())
