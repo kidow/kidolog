@@ -1,23 +1,12 @@
 const mongoose = require('mongoose')
 
-const { Schema } = mongoose
-const { Types: { ObjectId } } = Schema
-const Post = new Schema(
+const Post = new mongoose.Schema(
   {
-    content: String,
-    likeCount: String,
-    likes: {
-      type: [ String ],
-      default: []
-    },
-    displayName: {
-      type: ObjectId,
-      ref: 'Account'
-    }
+    title: String,
+    markdown: String,
+    tags: [String]
   },
-  {
-    timestamps: true
-  }
+  { timestamps: true }
 )
 
 module.exports = mongoose.model('Post', Post)
