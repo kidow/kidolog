@@ -1,7 +1,9 @@
 import React from 'react'
 import './Post.scss'
+import moment from 'moment'
+import removeMd from 'remove-markdown'
 
-const Post = () => {
+const Post = ({ title, markdown, createdAt, image }) => {
   return (
     <div className="post__container">
       <div className="post__image">이미지가 없습니다</div>
