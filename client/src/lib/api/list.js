@@ -1,4 +1,6 @@
 import axios from 'axios'
+import queryString from 'query-string'
 
-export const getList = () => axios.get('/posts')
+export const getList = tags =>
+  axios.get(`/posts${  tags ? `?${queryString.stringify({ tags })}` : ''}`)
 export const nextList = url => axios.get(url)
