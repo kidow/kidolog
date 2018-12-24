@@ -29,6 +29,8 @@ const EditorTemplate = ({
             value={title}
             onChange={onChange}
             placeholder="제목을 입력해주세요."
+            autoFocus
+            autoComplete="off"
           />
         </div>
         <div className="header__right">
