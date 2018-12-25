@@ -1,6 +1,7 @@
 import React from 'react'
 import './Preview.scss'
 import Marked from '../Marked/Marked'
+import PropTypes from 'prop-types'
 
 const Preview = ({ title, markdown }) => {
   return (
@@ -11,6 +12,11 @@ const Preview = ({ title, markdown }) => {
       </div>
     </div>
   )
+}
+
+Preview.propTypes = {
+  title: PropTypes.string,
+  markdown: PropTypes.string
 }
 
 export default Preview

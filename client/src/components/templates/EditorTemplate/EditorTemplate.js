@@ -3,6 +3,7 @@ import './EditorTemplate.scss'
 import { Input, Button, Icon, IconButton } from 'components/atoms'
 import { IoIosArrowDropleft, IoIosImage } from 'react-icons/io'
 import { MarkdownContainer, PreviewContainer } from 'containers/molecules'
+import PropTypes from 'prop-types'
 
 const EditorTemplate = ({
   history,
@@ -60,6 +61,18 @@ const EditorTemplate = ({
       </div>
     </div>
   )
+}
+
+EditorTemplate.propTypes = {
+  history: PropTypes.object,
+  markdownStyle: PropTypes.object,
+  previewStyle: PropTypes.object,
+  separatorStyle: PropTypes.object,
+  onSeparatorMouseDown: PropTypes.func,
+  title: PropTypes.string,
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
+  onUploadClick: PropTypes.func
 }
 
 export default EditorTemplate

@@ -3,6 +3,7 @@ import './Content.scss'
 import { Tag } from 'components/atoms'
 import moment from 'moment'
 import Marked from '../Marked'
+import PropTypes from 'prop-types'
 
 const Content = ({ title, markdown, createdAt, tags }) => {
   return (
@@ -25,6 +26,13 @@ const Content = ({ title, markdown, createdAt, tags }) => {
       </div>
     </div>
   )
+}
+
+Content.propTypes = {
+  title: PropTypes.string,
+  markdown: PropTypes.string,
+  createdAt: PropTypes.any, // 날짜 타입은 뭘할지 모르겠음,
+  tags: PropTypes.arrayOf(PropTypes.string)
 }
 
 export default Content

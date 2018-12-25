@@ -2,6 +2,7 @@ import React from 'react'
 import './Post.scss'
 import moment from 'moment'
 import removeMd from 'remove-markdown'
+import PropTypes from 'prop-types'
 
 const Post = ({ title, markdown, createdAt, image }) => {
   return (
@@ -14,6 +15,13 @@ const Post = ({ title, markdown, createdAt, image }) => {
       <div className="post__description">desc</div>
     </div>
   )
+}
+
+Post.propTypes = {
+  title: PropTypes.string,
+  image: PropTypes.any, // 아직 미정
+  markdown: PropTypes.string,
+  createdAt: PropTypes.any // 미정
 }
 
 export default Post

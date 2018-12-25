@@ -1,5 +1,6 @@
 import React from 'react'
 import './Logo.scss'
+import PropTypes from 'prop-types'
 
 const Logo = ({ big }) => {
   return (
@@ -9,6 +10,14 @@ const Logo = ({ big }) => {
       </a>
     </div>
   )
+}
+
+Logo.propTypes = {
+  big: PropTypes.bool
+}
+
+Logo.defaultProps = {
+  big: false
 }
 
 export default Logo

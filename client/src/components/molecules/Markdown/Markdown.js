@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Markdown.scss'
 import { Input } from 'components/atoms'
+import PropTypes from 'prop-types'
 
 import CodeMirror from 'codemirror'
 
@@ -77,5 +78,11 @@ class Markdown extends Component {
     )
   }
 }
+
+Markdown.propTypes = {
+  tags: PropTypes.string
+}
+
+Markdown.defaultProps = {}
 
 export default Markdown
