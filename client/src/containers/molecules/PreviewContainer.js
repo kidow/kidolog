@@ -10,7 +10,10 @@ class PreviewContainer extends Component {
   }
 }
 
-export default connect(state => ({
-  title: state.editor.get('title'),
-  markdown: state.editor.get('markdown')
-}))(PreviewContainer)
+export default connect(
+  state => ({
+    title: state.editor.get('title'),
+    markdown: state.editor.get('markdown')
+  }),
+  () => ({})
+)(PreviewContainer)
