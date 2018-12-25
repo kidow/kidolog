@@ -6,11 +6,11 @@ const Icon = ({ Name, ...rest }) => {
 }
 
 Icon.propTypes = {
-  Name: PropTypes.element
+  Name: PropTypes.func
 }
 
 Icon.defaultProps = {
-  Name: React.createElement('svg')
+  Name: () => null
 }
 
 export default Icon

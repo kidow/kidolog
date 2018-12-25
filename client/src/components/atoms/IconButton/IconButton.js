@@ -13,13 +13,13 @@ const IconButton = ({ IconName, onClick, children, ...rest }) => {
 }
 
 IconButton.propTypes = {
-  IconName: PropTypes.element,
+  IconName: PropTypes.func,
   onClick: PropTypes.func,
   children: PropTypes.node
 }
 
 IconButton.defaultProps = {
-  IconName: React.createElement('svg'),
+  IconName: () => null,
   onClick: () => null
 }
 
