@@ -5,7 +5,7 @@ import moment from 'moment'
 import Marked from '../Marked'
 import PropTypes from 'prop-types'
 
-const Content = ({ title, markdown, createdAt, tags, logged, onUpdate }) => {
+const Content = ({ title, markdown, createdAt, tags, logged, onUpdate, onRemove }) => {
   const tagsList = Array.isArray(tags)
     ? tags.map(tag => (
         <Tag key={tag} to={`/tag/${tag}`}>
@@ -19,7 +19,7 @@ const Content = ({ title, markdown, createdAt, tags, logged, onUpdate }) => {
       {logged && (
         <div className="content__buttons">
           <Button onClick={onUpdate}>수정</Button>
-          <Button>삭제</Button>
+          <Button onClick={onRemove}>삭제</Button>
         </div>
       )}
       <div className="content__date">{moment(createdAt).format('ll')}</div>

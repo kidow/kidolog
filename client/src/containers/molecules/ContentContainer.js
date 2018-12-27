@@ -20,19 +20,25 @@ class ContentContainer extends Component {
     }
   }
 
-  onUpdate = async () => {
+  onUpdate = () => {
     const { history, id } = this.props
     history.push(`/editor?id=${id}`)
   }
 
   onRemove = async () => {
-    const { EditorActions, post } = this.props
+    const { PostActions, id, history } = this.props
+    try {
+      await PostActions.removePost(id)
+      history.push('/')
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   render() {
     const { loading, post, logged } = this.props
     const { title, markdown, createdAt, tags } = post.toJS()
-    const { onUpdate } = this
+    const { onUpdate, onRemove } = this
     if (loading) return <Spinner />
     return (
       <Content
@@ -42,6 +48,7 @@ class ContentContainer extends Component {
         tags={tags}
         logged={logged}
         onUpdate={onUpdate}
+        onRemove={onRemove}
       />
     )
   }
