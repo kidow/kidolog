@@ -24,7 +24,7 @@ app.use(
     saveUninitialized: false,
     secret: cookieKey,
     cookie: {
-      maxAge: true,
+      maxAge: 86400000,
       httpOnly: true,
       secure: false
     }

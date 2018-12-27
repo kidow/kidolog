@@ -13,10 +13,11 @@ class LoginContainer extends Component {
   }
 
   onLogin = async () => {
-    const { AuthActions, password } = this.props
+    const { AuthActions, password, history } = this.props
     try {
       await AuthActions.login(password)
       localStorage.logged = 'true'
+      history.push('/')
     } catch (e) {
       console.log(e)
     }
@@ -27,6 +28,7 @@ class LoginContainer extends Component {
       this.onLogin()
     }
   }
+
   render() {
     const { password } = this.props
     const { onChangePassword, onKeyPress } = this

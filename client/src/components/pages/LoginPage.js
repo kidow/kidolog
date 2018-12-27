@@ -1,8 +1,8 @@
 import React from 'react'
 import { LoginContainer } from 'containers/organisms'
 
-const LoginPage = () => {
-  return <LoginContainer />
+const LoginPage = ({ history }) => {
+  return <LoginContainer history={history} />
 }
 
 export default LoginPage

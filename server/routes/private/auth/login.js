@@ -12,6 +12,6 @@ module.exports = async (req, res, next) => {
     req.session.logged = true
     res.json({ success: true })
   } else {
-    next(new CustomError(''))
+    next(new CustomError('패스워드가 일치하지 않습니다'))
   }
 }
