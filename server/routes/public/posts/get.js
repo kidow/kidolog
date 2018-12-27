@@ -3,10 +3,7 @@ const CustomError = require('@error')
 
 module.exports = async (req, res, next) => {
   const { id } = req.params
-  if (!ObjectId.isValid(id)) {
-    res.sendStatus(400)
-    return
-  }
+
   try {
     const post = await Post.findById(id).exec()
     if (!post) {

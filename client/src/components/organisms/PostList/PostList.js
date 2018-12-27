@@ -5,15 +5,16 @@ import { Post } from 'components/molecules'
 import PropTypes from 'prop-types'
 
 const PostList = ({ posts }) => {
-  return (
-    <div className="post-list">
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-    </div>
-  )
+  const postList = posts.map(item => (
+    <Post
+      key={item._id}
+      title={item.title}
+      markdown={item.markdown}
+      createdAt={item.createdAt}
+      id={item._id}
+    />
+  ))
+  return <div className="post-list">{postList}</div>
 }
 
 PostList.propTypes = {

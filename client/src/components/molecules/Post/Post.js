@@ -3,23 +3,25 @@ import './Post.scss'
 import moment from 'moment'
 import removeMd from 'remove-markdown'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-const Post = ({ title, markdown, createdAt, image }) => {
+const Post = ({ title, markdown, createdAt, id }) => {
   return (
     <div className="post__container">
       <div className="post__image">이미지가 없습니다</div>
       <div className="post__title">
-        <div className="title__text">그동안의 개발을 하면서 느꼈던 점들</div>
-        <div className="title__date">2018-12-23</div>
+        <Link to={`/post/${id}`} className="title__text">
+          {title}
+        </Link>
+        <div className="title__date">{moment(createdAt).format('ll')}</div>
       </div>
-      <div className="post__description">desc</div>
+      <div className="post__description">{removeMd(markdown.slice(0, 20))}</div>
     </div>
   )
 }
 
 Post.propTypes = {
   title: PropTypes.string,
-  image: PropTypes.any, // 아직 미정
   markdown: PropTypes.string,
   createdAt: PropTypes.any // 미정
 }

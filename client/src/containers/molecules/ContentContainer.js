@@ -4,6 +4,7 @@ import { Content } from 'components/molecules'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as postActions from 'store/post'
+import { Spinner } from 'components/atoms'
 
 class ContentContainer extends Component {
   componentDidMount() {
@@ -22,7 +23,7 @@ class ContentContainer extends Component {
   render() {
     const { loading, post } = this.props
     const { title, markdown, createdAt, tags } = post.toJS()
-    if (loading) return null
+    if (loading) return <Spinner />
     return <Content title={title} markdown={markdown} createdAt={createdAt} tags={tags} />
   }
 }

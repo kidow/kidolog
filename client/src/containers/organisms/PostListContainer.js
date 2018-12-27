@@ -59,7 +59,7 @@ class PostListContainer extends Component {
   render() {
     const { posts, loading } = this.props
     if (loading) return <Spinner />
-    return <PostList posts={posts} />
+    return <PostList posts={posts.toJS()} />
   }
 }
 
