@@ -22,7 +22,8 @@ exports.checkLogin = (req, res, next) => {
 }
 
 exports.checkCursor = (req, res, next) => {
-  const { cursor } = req.params
+  const { cursor } = req.query
+
   if (cursor && !ObjectId.isValid(cursor)) {
     res.sendStatus(400)
     return

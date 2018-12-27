@@ -19,11 +19,12 @@ class PostListContainer extends Component {
   }
 
   getList = async () => {
-    const { ListActions, tag, next } = this.props
+    const { ListActions, tag } = this.props
     try {
       await ListActions.getList(tag)
+      const { next } = this.props
       if (next) {
-        await ListActions.nextList(next)
+        ListActions.nextList(next)
       }
     } catch (e) {
       console.log(e)
@@ -46,13 +47,10 @@ class PostListContainer extends Component {
     const { nextPosts } = this.props
     if (nextPosts.size === 0) return
 
-    const { innerWidth } = window
-    const { scrollHeight } = document.body
-    const scrollTop =
-      (document.documentElement && document.documentElement.scrollTop) ||
-      document.body.scrollTop
+    const { scrollY } = window
+    const { scrollHeight, clientHeight } = document.body
 
-    if (scrollHeight - innerWidth - scrollTop < 100) {
+    if (scrollHeight - clientHeight === scrollY) {
       this.getNext()
     }
   }

@@ -2,6 +2,15 @@
 @import '~lib/styles/shadow';
 @import '~lib/styles/media';
 
+@keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .post__container {
   width: 298px;
   background: white;
@@ -15,6 +24,7 @@
   @include media('<tablet') {
     width: 100%;
   }
+  animation: appear 0.4s ease-in;
   .post__image {
     padding: 1rem;
     padding-top: 1.2rem;
