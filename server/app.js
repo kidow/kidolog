@@ -8,11 +8,11 @@ const {
   HOST: host = '127.0.0.1',
   COOKIE_KEY: cookieKey
 } = process.env
-// const connect = require('./models')
+const connect = require('./models')
 
 require('./lib/moduleAlias')
 const app = express()
-// connect()
+connect()
 
 app.use(morgan('dev'))
 app.use(express.json())
