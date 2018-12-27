@@ -3,9 +3,10 @@ import marked from 'marked'
 import './Marked.scss'
 
 import Prism from 'prismjs'
-import 'prismjs/themes/prism-okaidia.css'
+import 'prismjs/themes/prism-tomorrow.css'
 import 'prismjs/components/prism-bash.min.js'
 import 'prismjs/components/prism-javascript.min.js'
+import 'prismjs/components/prism-typescript.min.js'
 import 'prismjs/components/prism-jsx.min.js'
 import 'prismjs/components/prism-css.min.js'
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import './PostList.scss'
 import { Post } from 'components/molecules'
-// import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 const PostList = ({ posts }) => {
