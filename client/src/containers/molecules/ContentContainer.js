@@ -4,7 +4,6 @@ import { Content } from 'components/molecules'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as postActions from 'store/post'
-import * as editorActions from 'store/editor'
 import { Spinner } from 'components/atoms'
 
 class ContentContainer extends Component {
@@ -22,13 +21,8 @@ class ContentContainer extends Component {
   }
 
   onUpdate = async () => {
-    const { EditorActions, id, history } = this.props
-    try {
-      await history.push('/editor')
-      EditorActions.getPost(id)
-    } catch (e) {
-      console.log(e)
-    }
+    const { history, id } = this.props
+    history.push(`/editor?id=${id}`)
   }
 
   onRemove = async () => {
@@ -60,7 +54,6 @@ export default connect(
     loading: state.pender.pending['post/GET_POST']
   }),
   dispatch => ({
-    PostActions: bindActionCreators(postActions, dispatch),
-    EditorActions: bindActionCreators(editorActions, dispatch)
+    PostActions: bindActionCreators(postActions, dispatch)
   })
 )(ContentContainer)

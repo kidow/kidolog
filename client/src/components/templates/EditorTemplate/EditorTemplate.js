@@ -14,7 +14,8 @@ const EditorTemplate = ({
   title,
   onChange,
   onSubmit,
-  onUploadClick
+  onUploadClick,
+  updateMode
 }) => {
   return (
     <div className="editor-template">
@@ -42,7 +43,7 @@ const EditorTemplate = ({
             업로드
           </IconButton>
           <div className="spacer" />
-          <Button onClick={onSubmit}>작성하기</Button>
+          <Button onClick={onSubmit}>{updateMode ? '수정' : '작성'}하기</Button>
         </div>
       </div>
       <div className="editor__content">

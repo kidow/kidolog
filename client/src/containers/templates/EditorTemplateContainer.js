@@ -4,6 +4,9 @@ import { EditorTemplate } from 'components/templates'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as editorActions from 'store/editor'
+import * as postActions from 'store/post'
+
+import queryString from 'query-string'
 
 class EditorTemplateContainer extends Component {
   state = {
@@ -11,12 +14,16 @@ class EditorTemplateContainer extends Component {
   }
 
   componentDidMount() {
-    const { EditorActions, logged, history } = this.props
+    const { EditorActions, logged, history, location } = this.props
+    const { id } = queryString.parse(location.search)
     if (!logged) {
       history.push('/')
       return
     }
     EditorActions.initializeEditor()
+    if (id) {
+      EditorActions.getPost(id)
+    }
   }
 
   onUploadClick = () => {
@@ -33,13 +40,27 @@ class EditorTemplateContainer extends Component {
   uploadImage = async file => {}
 
   onSubmit = async () => {
-    const { title, markdown, tags, EditorActions, history } = this.props
+    const {
+      title,
+      markdown,
+      tags,
+      EditorActions,
+      history,
+      location,
+      PostActions
+    } = this.props
     const post = {
       title,
       markdown,
       tags: tags === '' ? [] : [...new Set(tags.split(',').map(tag => tag.trim()))]
     }
     try {
+      const { id } = queryString.parse(location.search)
+      if (id) {
+        await PostActions.updatePost({ id, ...post })
+        history.push('/')
+        return
+      }
       await EditorActions.writePost(post)
       history.push('/')
     } catch (e) {
@@ -70,13 +91,13 @@ class EditorTemplateContainer extends Component {
   }
 
   render() {
-    const { history, title } = this.props
+    const { history, title, location } = this.props
     const { leftPercentage } = this.state
     const { onSeparatorMouseDown, onChangeInput, onSubmit, onUploadClick } = this
     const markdownStyle = { flex: leftPercentage }
     const previewStyle = { flex: 1 - leftPercentage }
     const separatorStyle = { left: `${leftPercentage * 100}%` }
-
+    const { id } = queryString.parse(location.search)
     return (
       <EditorTemplate
         history={history}
@@ -88,6 +109,7 @@ class EditorTemplateContainer extends Component {
         markdownStyle={markdownStyle}
         previewStyle={previewStyle}
         separatorStyle={separatorStyle}
+        updateMode={!!id}
       />
     )
   }
@@ -101,6 +123,7 @@ export default connect(
     logged: state.auth.get('logged')
   }),
   dispatch => ({
-    EditorActions: bindActionCreators(editorActions, dispatch)
+    EditorActions: bindActionCreators(editorActions, dispatch),
+    PostActions: bindActionCreators(postActions, dispatch)
   })
 )(EditorTemplateContainer)

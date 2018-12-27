@@ -1,19 +1,20 @@
 const Post = require('@models/post')
 const CustomError = require('@error')
+const Joi = require('joi')
 
 module.exports = async (req, res, next) => {
   const schema = Joi.object().keys({
     title: Joi.string().required(),
     markdown: Joi.string().required(),
-    tags: Joi.string().empty('')
+    tags: Joi.array()
+      .items(Joi.string())
+      .required()
   })
 
   const result = Joi.validate(req.body, schema)
 
   if (result.error) {
-    console.error(result.error)
-    res.sendStatus(400)
-    return
+    next(new CustomError('Joi error', 0, 400))
   }
 
   const { id } = req.params
