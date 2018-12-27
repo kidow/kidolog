@@ -6,10 +6,12 @@ import * as api from 'lib/api/auth'
 const CHANGE_PASSWORD = 'auth/CHANGE_PASSWORD'
 const LOGIN = 'auth/LOGIN'
 const CHECK = 'auth/CHECK'
+const TEMP_LOGIN = 'auth/TEMP_LOGIN'
 
 export const changePassword = createAction(CHANGE_PASSWORD)
 export const login = createAction(LOGIN, api.login)
 export const check = createAction(CHECK, api.check)
+export const tempLogin = createAction(TEMP_LOGIN)
 
 const initialState = Map({
   password: '',
@@ -34,7 +36,10 @@ export default handleActions(
         const { logged } = action.payload.data
         return state.set('logged', logged)
       }
-    })
+    }),
+    [TEMP_LOGIN]: (state, action) => {
+      return state.set('logged', true)
+    }
   },
   initialState
 )

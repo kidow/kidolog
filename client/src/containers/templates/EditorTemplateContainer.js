@@ -12,7 +12,10 @@ class EditorTemplateContainer extends Component {
 
   componentDidMount() {
     const { EditorActions, logged, history } = this.props
-    if (!logged) history.push('/')
+    if (!logged) {
+      history.push('/')
+      return
+    }
     EditorActions.initializeEditor()
   }
 

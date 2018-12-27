@@ -13,6 +13,9 @@ class App extends Component {
 
   checkLogged = async () => {
     const { AuthActions } = this.props
+    if (localStorage.logged === 'true') {
+      AuthActions.tempLogin()
+    }
     AuthActions.check()
   }
 
