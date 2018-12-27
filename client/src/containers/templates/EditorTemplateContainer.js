@@ -11,7 +11,8 @@ class EditorTemplateContainer extends Component {
   }
 
   componentDidMount() {
-    const { EditorActions } = this.props
+    const { EditorActions, logged, history } = this.props
+    if (!logged) history.push('/')
     EditorActions.initializeEditor()
   }
 
@@ -93,7 +94,8 @@ export default connect(
   state => ({
     title: state.editor.get('title'),
     markdown: state.editor.get('markdown'),
-    tags: state.editor.get('tags')
+    tags: state.editor.get('tags'),
+    logged: state.auth.get('logged')
   }),
   dispatch => ({
     EditorActions: bindActionCreators(editorActions, dispatch)
