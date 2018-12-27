@@ -2,12 +2,12 @@ import React from 'react'
 import './Header.scss'
 import { Button, Logo } from 'components/atoms'
 
-const Header = () => {
+const Header = ({ logged }) => {
   return (
     <div className="header">
       <div className="header__content">
         <Logo />
-        <Button to="/editor">새 포스트</Button>
+        {logged && <Button to="/editor">새 포스트</Button>}
       </div>
       <div className="header__divider" />
     </div>

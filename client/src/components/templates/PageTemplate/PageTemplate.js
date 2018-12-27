@@ -1,12 +1,13 @@
 import React from 'react'
 import './PageTemplate.scss'
-import { Header, Footer } from 'components/organisms'
+import { Footer } from 'components/organisms'
 import PropTypes from 'prop-types'
+import HeaderContainer from 'containers/organisms/HeaderContainer'
 
 const PageTemplate = ({ children }) => {
   return (
     <div className="page-template">
-      <Header />
+      <HeaderContainer />
       {children}
       <Footer />
     </div>
