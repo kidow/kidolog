@@ -15,7 +15,7 @@ const Post = ({ title, markdown, createdAt, id }) => {
         </Link>
         <div className="title__date">{moment(createdAt).format('ll')}</div>
       </div>
-      <div className="post__description">{removeMd(markdown.slice(0, 20))}</div>
+      <div className="post__description">{removeMd(markdown.slice(0, 200))}...</div>
     </div>
   )
 }
