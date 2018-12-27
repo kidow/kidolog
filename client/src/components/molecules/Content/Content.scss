@@ -25,6 +25,9 @@
     word-break: keep-all;
     @include tablet;
   }
+  .content__buttons {
+    display: flex;
+  }
   .content__date {
     margin-top: 1rem;
     padding-bottom: 2rem;

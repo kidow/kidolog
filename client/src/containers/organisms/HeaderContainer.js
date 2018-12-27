@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Header } from 'components/organisms'
 
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 class HeaderContainer extends Component {
