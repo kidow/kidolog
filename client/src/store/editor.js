@@ -7,16 +7,19 @@ const INTIALIZE_EDITOR = 'editor/INITIALIZE_EDITOR'
 const CHANGE_INPUT = 'editor/CHANGE_INPUT'
 const WRITE_POST = 'editor/WRITE_POST'
 const GET_POST = 'editor/GET_POST'
+const THUMBNAIL_CHANGE = 'editor/THUMBNAIL_CHANGE'
 
 export const initializeEditor = createAction(INTIALIZE_EDITOR)
 export const changeInput = createAction(CHANGE_INPUT)
 export const writePost = createAction(WRITE_POST, api.writePost)
 export const getPost = createAction(GET_POST, api.getPost)
+export const thumbnailChange = createAction(THUMBNAIL_CHANGE)
 
 const initialState = Map({
   title: '',
   markdown: '',
-  tags: ''
+  tags: '',
+  thumbnail: ''
 })
 
 export default handleActions(
@@ -35,7 +38,11 @@ export default handleActions(
           .set('markdown', markdown)
           .set('tags', tags.join(', '))
       }
-    })
+    }),
+    [THUMBNAIL_CHANGE]: (state, action) => {
+      const { thumbnail } = action.payload.data
+      return state.set('thumbnail', thumbnail)
+    }
   },
   initialState
 )
