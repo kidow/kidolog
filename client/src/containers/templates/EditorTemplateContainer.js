@@ -27,17 +27,36 @@ class EditorTemplateContainer extends Component {
   }
 
   onUploadClick = () => {
+    // const upload = document.createElement('input')
+    // upload.type = 'file'
+    // upload.onchange = e => {
+    //   if (!upload.files) return
+    //   const file = upload.files[0]
+    //   console.log(file)
+    //   this.uploadImage(file)
+    // }
+    // upload.click()
+    const formData = new FormData()
     const upload = document.createElement('input')
     upload.type = 'file'
-    upload.onchange = e => {
+    upload.accept = 'image/*'
+    upload.onchange = () => {
       if (!upload.files) return
       const file = upload.files[0]
-      this.uploadImage(file)
+      formData.append('img', file)
+      this.uploadImage(formData)
     }
     upload.click()
   }
 
-  uploadImage = async file => {}
+  uploadImage = async formData => {
+    const { EditorActions } = this.props
+    try {
+      await EditorActions.imageUpload(formData)
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
   onSubmit = async () => {
     const {

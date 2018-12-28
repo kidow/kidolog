@@ -7,13 +7,15 @@ const INTIALIZE_EDITOR = 'editor/INITIALIZE_EDITOR'
 const CHANGE_INPUT = 'editor/CHANGE_INPUT'
 const WRITE_POST = 'editor/WRITE_POST'
 const GET_POST = 'editor/GET_POST'
-const THUMBNAIL_CHANGE = 'editor/THUMBNAIL_CHANGE'
+const IMAGE_UPLOAD = 'editor/IMAGE_UPLOAD'
+const THUMBNAIL_UPLOAD = 'editor/THUMBNAIL_UPLOAD'
 
 export const initializeEditor = createAction(INTIALIZE_EDITOR)
 export const changeInput = createAction(CHANGE_INPUT)
 export const writePost = createAction(WRITE_POST, api.writePost)
 export const getPost = createAction(GET_POST, api.getPost)
-export const thumbnailChange = createAction(THUMBNAIL_CHANGE)
+export const imageUpload = createAction(IMAGE_UPLOAD, api.imageUpload)
+export const thumbnailUpload = createAction(THUMBNAIL_UPLOAD, api.thumbnailUpload)
 
 const initialState = Map({
   title: '',
@@ -39,10 +41,20 @@ export default handleActions(
           .set('tags', tags.join(', '))
       }
     }),
-    [THUMBNAIL_CHANGE]: (state, action) => {
-      const { thumbnail } = action.payload.data
-      return state.set('thumbnail', thumbnail)
-    }
+    ...pender({
+      type: IMAGE_UPLOAD,
+      onSuccess: (state, action) => {
+        const { image } = action.payload.data
+        return state.set('markdown', state.get('markdown') + image)
+      }
+    }),
+    ...pender({
+      type: THUMBNAIL_UPLOAD,
+      onSuccess: (state, action) => {
+        const { thumbnail } = action.payload.data
+        return state.set('thumbnail', thumbnail)
+      }
+    })
   },
   initialState
 )
