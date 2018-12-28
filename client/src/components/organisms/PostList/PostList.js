@@ -3,7 +3,7 @@ import './PostList.scss'
 import { Post } from 'components/molecules'
 import PropTypes from 'prop-types'
 
-const PostList = ({ posts }) => {
+const PostList = ({ posts, history }) => {
   const postList = posts.map(item => (
     <Post
       key={item._id}
@@ -11,6 +11,7 @@ const PostList = ({ posts }) => {
       markdown={item.markdown}
       createdAt={item.createdAt}
       id={item._id}
+      history={history}
     />
   ))
   return <div className="post-list">{postList}</div>

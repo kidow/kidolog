@@ -37,6 +37,11 @@
     justify-content: center;
     height: 8.5rem;
     cursor: pointer;
+    background-position: center;
+    background-size: cover;
+    &:hover {
+      filter: opacity(0.8);
+    }
   }
   .post__title {
     padding: 1rem;

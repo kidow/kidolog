@@ -3,12 +3,13 @@ import { PageTemplate, ListTemplate } from 'components/templates'
 import { SearchContainer } from 'containers/atoms'
 import { PostListContainer } from 'containers/organisms'
 
-const HomePage = () => {
+const HomePage = ({ match, history }) => {
+  const { tag } = match.params
   return (
     <PageTemplate>
       <ListTemplate>
         <SearchContainer />
-        <PostListContainer />
+        <PostListContainer tag={tag} history={history} />
       </ListTemplate>
     </PageTemplate>
   )

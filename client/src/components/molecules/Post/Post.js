@@ -5,10 +5,19 @@ import removeMd from 'remove-markdown'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-const Post = ({ title, markdown, createdAt, id }) => {
+const Post = ({ title, markdown, createdAt, id, imageUrl, history }) => {
   return (
     <div className="post__container">
-      <div className="post__image">이미지가 없습니다</div>
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+      <div
+        className="post__image"
+        style={{
+          backgroundImage: `url(${imageUrl})`
+        }}
+        onClick={() => history.push(`/post/${id}`)}
+      >
+        {imageUrl ? '' : '이미지가 없습니다'}
+      </div>
       <div className="post__title">
         <Link to={`/post/${id}`} className="title__text">
           {title}
