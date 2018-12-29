@@ -2,11 +2,11 @@ const Post = require('@models/post')
 const CustomError = require('@error')
 
 module.exports = async (req, res, next) => {
-  const { cursor, tag } = req.query
+  const { cursor, tags } = req.query
 
   let posts = null
   try {
-    posts = await Post.list({ cursor, tag })
+    posts = await Post.list({ cursor, tags })
   } catch (e) {
     console.error(e)
     res.status(500)
@@ -14,7 +14,7 @@ module.exports = async (req, res, next) => {
 
   const nextUrl =
     posts.length === 6
-      ? `/posts/?${tag ? `tag=${tag}&` : ''}cursor=${posts[5]._id}`
+      ? `/posts/?${tags ? `tags=${tags}&` : ''}cursor=${posts[5]._id}`
       : null
 
   res.json({ next: nextUrl, posts })

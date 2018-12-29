@@ -1,8 +1,8 @@
-module.exports = function({ cursor, tag }) {
+module.exports = function({ cursor, tags }) {
   const query = Object.assign(
     {},
     cursor ? { _id: { $lt: cursor } } : {},
-    tag ? { tag } : {}
+    tags ? { tags } : {}
   )
 
   return this.find(query)
