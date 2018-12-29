@@ -4,7 +4,8 @@ const Post = new mongoose.Schema(
   {
     title: String,
     markdown: String,
-    tags: [String]
+    tags: [String],
+    thumbnail: String
   },
   { timestamps: true }
 )

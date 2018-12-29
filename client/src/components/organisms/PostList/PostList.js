@@ -10,6 +10,7 @@ const PostList = ({ posts, history }) => {
       title={item.title}
       markdown={item.markdown}
       createdAt={item.createdAt}
+      thumbnail={item.thumbnail}
       id={item._id}
       history={history}
     />

@@ -16,7 +16,8 @@ const EditorTemplate = ({
   onChange,
   onSubmit,
   onUploadClick,
-  updateMode
+  updateMode,
+  onUploadThumbClick
 }) => {
   return (
     <div className="editor-template">
@@ -40,7 +41,7 @@ const EditorTemplate = ({
           </div>
         </div>
         <div className="header__right">
-          <IconButton IconName={MdFileUpload} size={25} onClick={onUploadClick}>
+          <IconButton IconName={MdFileUpload} size={25} onClick={onUploadThumbClick}>
             썸네일
           </IconButton>
           <div className="spacer" />

@@ -7,8 +7,6 @@ module.exports = multer({
     s3,
     bucket: process.env.AWS_S3_BUCKET,
     key(req, file, cb) {
-      console.log(req.body)
-      console.log('file :', file)
       cb(null, file.originalname)
     }
   }),

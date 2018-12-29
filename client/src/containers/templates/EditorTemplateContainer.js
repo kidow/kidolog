@@ -27,15 +27,6 @@ class EditorTemplateContainer extends Component {
   }
 
   onUploadClick = () => {
-    // const upload = document.createElement('input')
-    // upload.type = 'file'
-    // upload.onchange = e => {
-    //   if (!upload.files) return
-    //   const file = upload.files[0]
-    //   console.log(file)
-    //   this.uploadImage(file)
-    // }
-    // upload.click()
     const formData = new FormData()
     const upload = document.createElement('input')
     upload.type = 'file'
@@ -49,10 +40,33 @@ class EditorTemplateContainer extends Component {
     upload.click()
   }
 
-  uploadImage = async formData => {
+  onUploadThumbClick = () => {
+    const formData = new FormData()
+    const upload = document.createElement('input')
+    upload.type = 'file'
+    upload.accept = 'image/*'
+    upload.onchange = () => {
+      if (!upload.files) return
+      const file = upload.files[0]
+      formData.append('thumb', file)
+      this.uploadThumbnail(formData)
+    }
+    upload.click()
+  }
+
+  uploadImage = formData => {
     const { EditorActions } = this.props
     try {
-      await EditorActions.imageUpload(formData)
+      EditorActions.imageUpload(formData)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  uploadThumbnail = formData => {
+    const { EditorActions } = this.props
+    try {
+      EditorActions.thumbnailUpload(formData)
     } catch (e) {
       console.log(e)
     }
@@ -63,6 +77,7 @@ class EditorTemplateContainer extends Component {
       title,
       markdown,
       tags,
+      thumbnail,
       EditorActions,
       history,
       location,
@@ -71,7 +86,8 @@ class EditorTemplateContainer extends Component {
     const post = {
       title,
       markdown,
-      tags: tags === '' ? [] : [...new Set(tags.split(',').map(tag => tag.trim()))]
+      tags: tags === '' ? [] : [...new Set(tags.split(',').map(tag => tag.trim()))],
+      thumbnail
     }
     try {
       const { id } = queryString.parse(location.search)
@@ -112,7 +128,13 @@ class EditorTemplateContainer extends Component {
   render() {
     const { history, title, location } = this.props
     const { leftPercentage } = this.state
-    const { onSeparatorMouseDown, onChangeInput, onSubmit, onUploadClick } = this
+    const {
+      onSeparatorMouseDown,
+      onChangeInput,
+      onSubmit,
+      onUploadClick,
+      onUploadThumbClick
+    } = this
     const markdownStyle = { flex: leftPercentage }
     const previewStyle = { flex: 1 - leftPercentage }
     const separatorStyle = { left: `${leftPercentage * 100}%` }
@@ -129,6 +151,7 @@ class EditorTemplateContainer extends Component {
         previewStyle={previewStyle}
         separatorStyle={separatorStyle}
         updateMode={!!id}
+        onUploadThumbClick={onUploadThumbClick}
       />
     )
   }
@@ -139,6 +162,7 @@ export default connect(
     title: state.editor.get('title'),
     markdown: state.editor.get('markdown'),
     tags: state.editor.get('tags'),
+    thumbnail: state.editor.get('thumbnail'),
     logged: state.auth.get('logged')
   }),
   dispatch => ({

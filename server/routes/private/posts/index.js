@@ -1,10 +1,11 @@
 const posts = require('express').Router()
-const { checkObjectId, checkLogin } = require('@middle')
+const { checkObjectId } = require('@middle')
 const upload = require('@multer')
 
-posts.post('/', checkLogin, require('./write'))
-posts.post('/image', checkLogin, upload.single('img'), require('./image'))
-posts.delete('/:id', checkLogin, checkObjectId, require('./remove'))
-posts.patch('/:id', checkLogin, checkObjectId, require('./update'))
+posts.post('/', require('./write'))
+posts.post('/image', upload.single('img'), require('./image'))
+posts.post('/thumbnail', upload.single('thumb'), require('./thumbnail'))
+posts.delete('/:id', checkObjectId, require('./remove'))
+posts.patch('/:id', checkObjectId, require('./update'))
 
 module.exports = posts
