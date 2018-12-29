@@ -11,10 +11,34 @@ class SearchContainer extends Component {
     const { value } = e.target
     ListActions.changeSearch(value)
   }
+
+  onSearch = () => {
+    const { ListActions, search } = this.props
+    try {
+      if (search) {
+        if (search[0] === '#') {
+          ListActions.getList(search.slice(1))
+          return
+        }
+        ListActions.getList(undefined, search)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  onKeyPress = e => {
+    if (e.key === 'Enter') {
+      this.onSearch()
+    }
+  }
+
   render() {
     const { search } = this.props
-    const { onChangeSearch } = this
-    return <Search search={search} onChangeSearch={onChangeSearch} />
+    const { onChangeSearch, onKeyPress } = this
+    return (
+      <Search search={search} onChangeSearch={onChangeSearch} onKeyPress={onKeyPress} />
+    )
   }
 }
 
