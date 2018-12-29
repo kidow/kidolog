@@ -13,7 +13,7 @@ module.exports = () => {
       useNewUrlParser: true,
       useCreateIndex: true
     },
-    (err) => {
+    err => {
       if (err) {
         console.error('mongoDB connecting error :', err)
       } else {
@@ -23,6 +23,4 @@ module.exports = () => {
   )
 
   require('./post')
-  require('./account')
-  require('./comment')
 }
