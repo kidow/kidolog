@@ -1,5 +1,4 @@
 const Post = require('@models/post')
-const CustomError = require('@error')
 
 module.exports = async (req, res, next) => {
   const { cursor, tags, search } = req.query
@@ -7,9 +6,8 @@ module.exports = async (req, res, next) => {
   let posts = null
   try {
     posts = await Post.list({ cursor, tags, search })
-  } catch (e) {
-    console.error(e)
-    res.status(500)
+  } catch (err) {
+    return next(err)
   }
 
   const nextUrl =

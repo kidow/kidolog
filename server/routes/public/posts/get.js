@@ -7,12 +7,10 @@ module.exports = async (req, res, next) => {
   try {
     const post = await Post.findById(id).exec()
     if (!post) {
-      res.sendStatus(404)
-      return
+      return next(new CustomError('404 Not Found', 0, 404))
     }
     res.json(post)
-  } catch (e) {
-    res.status(500)
-    next(e)
+  } catch (err) {
+    next(err)
   }
 }

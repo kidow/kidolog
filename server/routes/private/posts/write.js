@@ -21,8 +21,7 @@ module.exports = async (req, res, next) => {
   try {
     const post = await Post.write(req.body)
     res.json(post)
-  } catch (e) {
-    console.error(e)
-    res.status(500)
+  } catch (err) {
+    next(err)
   }
 }
