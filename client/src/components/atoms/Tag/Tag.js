@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 const Tag = ({ children, ...rest }) => {
   return (
-    <Link className="tag" {...rest}>
+    <Link className="tag__container" {...rest}>
       {children}
     </Link>
   )

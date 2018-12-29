@@ -2,6 +2,7 @@ import React from 'react'
 import './Content.scss'
 import { Tag, Button } from 'components/atoms'
 import moment from 'moment'
+import 'moment/locale/ko'
 import Marked from '../Marked'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
@@ -30,7 +31,7 @@ const Content = ({ title, markdown, createdAt, tags, logged, onUpdate, onRemove 
           <Button onClick={onRemove}>삭제</Button>
         </div>
       )}
-      <div className="content__date">{moment(createdAt).format('ll')}</div>
+      <div className="content__date">{moment(createdAt).format('lll')}</div>
       <div className="content__body">
         <Marked markdown={markdown} />
       </div>
@@ -42,7 +43,7 @@ const Content = ({ title, markdown, createdAt, tags, logged, onUpdate, onRemove 
 Content.propTypes = {
   title: PropTypes.string,
   markdown: PropTypes.string,
-  createdAt: PropTypes.any, // 날짜 타입은 뭘할지 모르겠음,
+  createdAt: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string)
 }
 

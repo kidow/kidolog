@@ -8,7 +8,7 @@ const cx = classNames.bind(styles)
 
 const DivButton = ({ children, ...rest }) => <div {...rest}>{children}</div>
 
-const Button = ({ children, to, onClick, theme = 'default' }) => {
+const Button = ({ children, to, onClick, theme }) => {
   const Element = to ? Link : DivButton
   return (
     <Element to={to} onClick={onClick} className={cx('button', theme)}>

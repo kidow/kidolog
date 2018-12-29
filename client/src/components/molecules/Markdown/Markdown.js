@@ -10,6 +10,7 @@ import 'codemirror/mode/javascript/javascript'
 import 'codemirror/mode/jsx/jsx'
 import 'codemirror/mode/css/css'
 import 'codemirror/mode/shell/shell'
+import 'codemirror/mode/sass/sass'
 
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/monokai.css'
@@ -83,6 +84,8 @@ Markdown.propTypes = {
   tags: PropTypes.string
 }
 
-Markdown.defaultProps = {}
+Markdown.defaultProps = {
+  tags: ''
+}
 
 export default Markdown

@@ -1,14 +1,10 @@
 @import '~lib/styles/color';
-@import '~lib/styles/media';
 
 .preview__container {
   flex: 1;
   padding: 2rem;
   overflow-y: auto;
   font-size: 1.125rem;
-  @include media('<phone') {
-    display: none;
-  }
   .preview__title {
     font-size: 2.5rem;
     font-weight: bold;

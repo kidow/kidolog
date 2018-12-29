@@ -8,14 +8,15 @@ const PostPage = ({ match, history }) => {
   const { id } = match.params
   return (
     <PostTemplate>
-      <Logo big />
+      <Logo theme="post" />
       <ContentContainer id={id} history={history} />
     </PostTemplate>
   )
 }
 
 PostPage.propTypes = {
-  match: PropTypes.object
+  match: PropTypes.object,
+  history: PropTypes.object
 }
 
 export default PostPage

@@ -19,7 +19,8 @@ const PostList = ({ posts, history }) => {
 }
 
 PostList.propTypes = {
-  posts: PropTypes.any // 미정,
+  posts: PropTypes.array,
+  history: PropTypes.object
 }
 
 export default PostList

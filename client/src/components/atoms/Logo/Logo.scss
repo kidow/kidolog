@@ -1,11 +1,11 @@
 @import '~lib/styles/color';
 
-.logo {
+.logo__container {
   color: $oc-orange-8;
   font-weight: bold;
   font-size: 1.4rem;
   padding-left: 1rem;
-  .big {
+  .post {
     font-size: 2rem;
   }
 }

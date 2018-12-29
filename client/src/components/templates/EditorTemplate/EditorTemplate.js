@@ -79,7 +79,9 @@ EditorTemplate.propTypes = {
   title: PropTypes.string,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
-  onUploadClick: PropTypes.func
+  onUploadClick: PropTypes.func,
+  updateMode: PropTypes.bool,
+  onUploadThumbClick: PropTypes.func
 }
 
 export default EditorTemplate

@@ -3,10 +3,10 @@ import './Logo.scss'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-const Logo = ({ big }) => {
+const Logo = ({ theme }) => {
   return (
-    <div className="logo">
-      <Link className={big ? 'big' : ''} to="/">
+    <div className="logo__container">
+      <Link className={theme} to="/">
         Kidolog
       </Link>
     </div>
@@ -14,11 +14,11 @@ const Logo = ({ big }) => {
 }
 
 Logo.propTypes = {
-  big: PropTypes.bool
+  theme: PropTypes.string
 }
 
 Logo.defaultProps = {
-  big: false
+  theme: ''
 }
 
 export default Logo

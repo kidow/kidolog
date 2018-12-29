@@ -7,7 +7,8 @@ const EditorPage = ({ history, location }) => {
 }
 
 EditorPage.propTypes = {
-  history: PropTypes.object
+  history: PropTypes.object,
+  location: PropTypes.object
 }
 
 export default EditorPage
