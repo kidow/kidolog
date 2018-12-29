@@ -4,7 +4,8 @@
   "main": "app.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon app"
+    "start": "NODE_ENV=production node app",
+    "start:dev": "NODE_ENV=development nodemon --watch app"
   },
   "dependencies": {
     "aws-sdk": "^2.382.0",

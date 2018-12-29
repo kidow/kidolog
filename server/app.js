@@ -6,7 +6,8 @@ const session = require('express-session')
 const {
   PORT: port = 4000,
   HOST: host = '127.0.0.1',
-  COOKIE_KEY: cookieKey
+  COOKIE_KEY: cookieKey,
+  NODE_ENV
 } = process.env
 const connect = require('./models')
 
@@ -14,7 +15,9 @@ require('./lib/moduleAlias')
 const app = express()
 connect()
 
-app.use(morgan('dev'))
+if (NODE_ENV === 'development') {
+  app.use(morgan('dev'))
+}
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser(cookieKey))
