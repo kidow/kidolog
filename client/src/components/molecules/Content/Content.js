@@ -4,6 +4,8 @@ import { Tag, Button } from 'components/atoms'
 import moment from 'moment'
 import Marked from '../Marked'
 import PropTypes from 'prop-types'
+import { Helmet } from 'react-helmet'
+import removeMd from 'remove-markdown'
 
 const Content = ({ title, markdown, createdAt, tags, logged, onUpdate, onRemove }) => {
   const tagsList = Array.isArray(tags)
@@ -15,6 +17,12 @@ const Content = ({ title, markdown, createdAt, tags, logged, onUpdate, onRemove 
     : []
   return (
     <div className="content__container">
+      {markdown && (
+        <Helmet>
+          <title>{title}</title>
+          <meta name="description" content={removeMd(markdown).slice(0, 190)} />
+        </Helmet>
+      )}
       <div className="content__title">{title}</div>
       {logged && (
         <div className="content__buttons">
