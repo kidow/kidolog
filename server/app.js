@@ -9,11 +9,10 @@ const {
   COOKIE_KEY: cookieKey,
   NODE_ENV
 } = process.env
-const connect = require('./models')
 
 require('./lib/moduleAlias')
 const app = express()
-connect()
+require('./models')()
 
 if (NODE_ENV === 'development') {
   app.use(morgan('dev'))
