@@ -18,6 +18,9 @@ input {
     padding: 0.5rem;
     font-size: 1.2rem;
     color: $oc-gray-7;
+    &::placeholder {
+      color: $oc-gray-4;
+    }
   }
   &.login {
     background: white;
