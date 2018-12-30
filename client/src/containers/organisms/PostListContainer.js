@@ -21,7 +21,7 @@ class PostListContainer extends Component {
   getList = async () => {
     const { ListActions, tag } = this.props
     try {
-      await ListActions.getList(tag)
+      await ListActions.getList({ tag })
       const { next } = this.props
       if (next) {
         ListActions.nextList(next)

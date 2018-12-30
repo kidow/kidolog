@@ -17,10 +17,10 @@ class SearchContainer extends Component {
     try {
       if (search) {
         if (search[0] === '#') {
-          ListActions.getList(search.slice(1))
+          ListActions.getList({ tag: search.slice(1) })
           return
         }
-        ListActions.getList(undefined, search)
+        ListActions.getList({ search })
       }
     } catch (e) {
       console.log(e)
