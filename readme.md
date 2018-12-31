@@ -11,12 +11,12 @@
 - Redux
   - react-redux
   - redux
-  - immutable
+  - immutable => immer (차후에 바꿀 예정)
   - redux-actions
-  - redux-pender
+  - redux-pender => redux-saga (차후)
   - redux-devtools-extension
 - axios
-- prop-types
+- prop-types => typescript(차후)
 - query-string
 - moment
 - Sass
@@ -31,6 +31,8 @@
   - marked
   - prismjs
   - remove-markdown
+- Test (차후)
+  - Jest
 
 ## Back-end :
 
